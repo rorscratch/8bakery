@@ -58,11 +58,11 @@ export default function Home() {
   return (
       <>
         <MyNavbar />
-        <MeowerMeow />
+        
         {tokenArr && tokenArr.map(item => (
           <Token key={item} id={item} />
         ))}
-        
+        <MeowerMeow />
       </>
   )
 }

@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
 
         setLoggedIn(true);
         setUserDetails({
-            name: "Alan",
+            name: "Michael henry",
             notifications: 3
         });
     }

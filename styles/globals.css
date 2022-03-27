@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.navbar .btn-kitty {
+  background-color: #1d2b53;
+  color: #fff1e8;
+}
+
+img {
+  image-rendering: pixelated;
+}

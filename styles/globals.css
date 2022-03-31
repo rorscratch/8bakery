@@ -23,3 +23,17 @@ a {
 img {
   image-rendering: pixelated;
 }
+
+.clickableImage {
+  image-rendering: pixelated;
+  cursor: pointer;
+}
+
+.Layout .Content img {
+  min-width: 0%;
+  min-height: 0%;
+}
+
+.centerContent {
+  text-align: center;
+}

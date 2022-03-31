@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Popover from 'react-bootstrap/Popover'
 import Card from "react-bootstrap/Card";
-
+import MeowerMeow from "./test-component";
 import { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "./auth-provider";
@@ -73,7 +73,7 @@ export default function IslanderNavbar(props){
                 {(isProfileMetadataLoaded && !isPreview) ? (
                     <>
                         <Navbar.Text>
-                            <Button onClick={shareClick} variant="orange" size="sm" className="border-dark border-1">share</Button>
+                            <Button onClick={shareClick} variant="orange" size="sm" className="border-dark border-1">Inventory</Button>
                         </Navbar.Text>
                         &nbsp;
                     </>
@@ -96,7 +96,7 @@ export default function IslanderNavbar(props){
                         <Button variant="green" size="sm" className="border-dark border-1">?</Button>
                     </OverlayTrigger>
                 </Navbar.Text>
-
+                <MeowerMeow></MeowerMeow>
             </Navbar.Collapse>
         </Navbar>
     );

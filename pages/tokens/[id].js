@@ -9,37 +9,43 @@ import reactDom from 'react-dom';
 import { Grid , TablePagination } from '@mui/material';
 import token from '../../components/token-image';
 import router, { useRouter } from 'next/router'
-var TokenId = 0
+
 
 
 export default function Home() {
-
-  const router = useRouter()
-  console.log("Router ID: "+router.query);
-  TokenId = router.query
+  var TokenID = 0
+  const { asPath } = useRouter()
   const [image, setImage] = useState(null)
   const [imageString, setImageString] = useState("")
   const [creatorName, setCreatorName] = useState("")
 
 
   React.useEffect(() => {
-    if (TokenID == null){
+/*     if (TokenID == null){
       getImageData(100)
     } else {
-    getImageData(TokenID)}
-  }, [])
-
+    getImageData(TokenID)} */
+    
+    
+    //const { asPath} = router.pathname;
+    //TokenID = router.query
+    if(asPath.replace('/tokens/','') !== '[id]'){
+    console.log("REAL ROUTER ID HOURS: "+ asPath.replace('/tokens/',''))
+    getImageData(asPath.replace('/tokens/',''))
+    }
+  }, [asPath])
+  
 
   // make Token Image
   const getImageData = async (id) => {
     const response = await fetch('https://api.tzkt.io/v1/contracts/KT1MxDwChiDwd6WBVs24g1NjERUoK622ZEFp/bigmaps/rgb/keys?key='+ id +'&limit=1')
     const json = await response.json()
-
-    setImageString(json[0].value.rgb)
+    console.log("Drawing image of "+id)
+    const imageString2 = json[0].value.rgb
     //Make 8X8 image
     if(typeof window !== "undefined"){
     // can't use setImageString and then read imageString here, have to directly read ID which isn't an issue but I should ask about it
-    let t=imageString.split(""),n=document.createElement("canvas");
+    let t=imageString2.split(""),n=document.createElement("canvas");
     n.width=8,n.height=8;
     let a=n.getContext("2d");
     a.clearRect(0,0,8,8);

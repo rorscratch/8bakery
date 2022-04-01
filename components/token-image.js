@@ -15,7 +15,7 @@ export default function token(props){
     
     
     function meow(){
-      console.log("Meow")
+      console.log(props.id)
     }
     
     const getImageData = async (id) => {
@@ -41,7 +41,7 @@ export default function token(props){
         setImage(n.toDataURL("image/png",1))
         //const byteArray = json[0].value.creater_name.match(/.{1,2}/g);
         //setCreatorName(hex_to_ascii(json[0].value.creater_name));
-        setCreatorName("5124");
+        setCreatorName(props.id);
         console.log("set image to " + image)
         }
  
@@ -67,7 +67,7 @@ export default function token(props){
       
 
 
-        {image && <Link href={'tokens/' + TokenId}><Image
+        {image && <Link href={'tokens/' + props.id}><Image
             className="clickableImage" 
             src={image}
             height={50}

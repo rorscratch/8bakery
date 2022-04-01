@@ -10,18 +10,19 @@ import Layout from '../components/layout';
 import reactDom from 'react-dom';
 import { Grid , TablePagination } from '@mui/material';
 import token from '../components/token-image';
-var tokenTemp = []
+
 
 export default function Home() {
   
 
 
   
-
+  var items = []
   const [tokenArrCreator, updateTokenArrCreator] = useState(null)
   const [tokenArrOwner, updateTokenArrOwner] = useState(null)
   
   const getInventory = async (id) => {
+    var tokenTemp = []
     const response = await fetch('https://api.tzkt.io/v1/tokens/balances?account='+id+'&token.contract=KT1MxDwChiDwd6WBVs24g1NjERUoK622ZEFp&limit=2000')
     const json = await response.json()
     
@@ -45,50 +46,31 @@ export default function Home() {
     for (let i = 0; i < json2.length; i++){
       if (json2[i].value.creater === id)
       {
-        tempTokenArr2.push({rgb:json2[i].value.rgb,id:tokenTemp[i]})
+        tempTokenArr2.push({rgb:json2[i].value.rgb,id:json2[i].value.token_id})
         console.log(tokenTemp[i]+"TOKEN TEMP")
       } else {
-        tempTokenArr3.push({rgb:json2[i].value.rgb,id:tokenTemp[i]})
+        tempTokenArr3.push({rgb:json2[i].value.rgb,id:json2[i].value.token_id})
         console.log(tokenTemp[i]+"TOKEN TEMP")
       }
       console.log(tokenTemp[i])
-
       
-    }
+      
+      }
+    
     updateTokenArrCreator(tempTokenArr2)
     updateTokenArrOwner(tempTokenArr3)
     console.log(tokenArrOwner)
     console.log(tokenArrCreator)
+    }
   
-  
-
-
-  
-  }
-  var items = []
     React.useEffect(() => {
       console.log("SHOULD BE DONE ONLY ONCE")
       if (typeof response === 'undefined'){
-        getInventory("tz1XqJ9e6NdouxdGvm2V3aknwFnGL6Kinu6A")
+        getInventory("tz1aWjNP6Gf4d3zsaA6QwShyLw2t6sgcdZ2B")
       }
     
     }, [])
     //getInventory("tz1aWjNP6Gf4d3zsaA6QwShyLw2t6sgcdZ2B")
- 
-    function showItemsArr(array){
-
-      for (let i = 0; i < array.length; i++){
-        items.push(<Token key={i} id={array[i].id} rgb={array[i].rgb}/>)
-       }
-       console.log(tokenTemp+"TOKEN TEMP TEEKIE")
-       console.log("ITEMS: " +items)
-      return(
-        <div>
-        {items}
-        </div>
-        )
-    }
-
 
 
 
@@ -98,17 +80,21 @@ export default function Home() {
           
           <div className='centerContent'>
             
-            <Grid container spacing={4} justifyContent="center">
-                {tokenArrCreator && showItemsArr(tokenArrCreator)}
-            </Grid>
-
 {/*             <Grid container spacing={4} justifyContent="center">
-                {tokenArrOwner && tokenArrOwner.map(item => (
+                {items && items.map(item => (
                   <Grid item>
-                    <Token key={item} id={item} />
+                    {item}
                   </Grid>
                 ))}
             </Grid> */}
+
+            <Grid container spacing={4} justifyContent="center">
+                {tokenArrCreator && tokenArrCreator.map(({rgb, id}) => (
+                  <Grid item>
+                    <Token key={id} id={id} rgb={rgb} />
+                  </Grid>
+                ))}
+            </Grid>
 
           </div>
         </Layout>

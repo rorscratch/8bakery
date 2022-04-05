@@ -1,7 +1,7 @@
 import { AuthContext } from "./auth-provider";
 import Image from 'next/image'
 import Button from "react-bootstrap/Button";
-import React, { useEffect,useContext , useState } from "react";
+import { useEffect,useContext , useState } from "react";
 import { Cpu } from "react-bootstrap-icons";
 import Link from 'next/link'
 var TokenId = 0

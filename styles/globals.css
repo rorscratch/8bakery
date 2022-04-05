@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -20,8 +21,13 @@ a {
   color: #fff1e8;
 }
 
-img {
+.pixelImg {
+  border-radius: 50%;
   image-rendering: pixelated;
+}
+
+.tokenImg {
+  image-rendering: pixelated; 
 }
 
 .clickableImage {
@@ -36,4 +42,75 @@ img {
 
 .centerContent {
   text-align: center;
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-top: 64px;
+  padding: 10px 10px;
+  min-height: calc(100vh - 120px);
+}
+
+.drawerbutton {
+  top: 10%;
+  left: 20%;
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+}
+
+.backgroundColor {
+  background-color: #000000;
+}
+
+.divFull {
+  position: absolute;
+}
+
+.bottomNav {
+  width: 100%;
+  height: 56px;
+  position: static;
+  bottom: 0;
+  z-index: 3;
+  background-color: #44273b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.randomGridBox {
+  padding: 50px;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .randomGridBox {
+    
+    padding: 1%;
+    padding-top: 50px;
+  }
 }

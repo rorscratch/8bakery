@@ -4,12 +4,13 @@ const headerStyle = {
     backgroundColor: "blue",
     color: "white",
     width: "100%",
-    height: "50px"
+    marginLeft: "0px",
+    height: "70px"
   };
   
   const Header = () => (
     <div className="Header" style={headerStyle}>
-      HEADER
+      HEADERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
     </div>
   );
   

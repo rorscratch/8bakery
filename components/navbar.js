@@ -25,7 +25,7 @@ const popover = (
     </Popover>
 );
 
-export default function IslanderNavbar(props){
+export default function MyNavbar(props){
 
     const { status, user, wallet, profileMetadata, isProfileMetadataLoaded } = useContext(AuthContext);
     var isPreview = props.isPreview;
